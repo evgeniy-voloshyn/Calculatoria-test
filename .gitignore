@@ -47,6 +47,7 @@ Thumbs.db
 # Gradle #
 #########
 **/build/*
+.gradle/
 
 # Other IDE's#
 ##############
