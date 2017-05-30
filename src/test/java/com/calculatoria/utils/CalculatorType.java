@@ -2,31 +2,35 @@ package com.calculatoria.utils;
 
 import org.junit.Assert;
 
+import java.util.AbstractMap;
+
 
 public enum CalculatorType {
 
-    BASIC("basic"),
-    ADVANCED("advanced");
+    BASIC("basic", "standard calculator"),
+    ADVANCED("advanced", "scientific calculator");
 
-    private String value;
+    private AbstractMap.SimpleEntry<String, String> option;
+    CalculatorType(String title, String value) {option = new AbstractMap.SimpleEntry<>(title, value);
+    }
 
-    CalculatorType(String value) {
-        this.value = value;
+    public String getTitle() {
+        return option.getKey();
     }
 
     public String getValue() {
-        return value;
+        return option.getValue();
     }
 
-    public static CalculatorType fromString(String value) {
-        if (value != null) {
+    public static CalculatorType fromTitle(String title) {
+        if (title != null) {
             for (CalculatorType type : CalculatorType.values()) {
-                if (value.equalsIgnoreCase(type.getValue())) {
+                if (title.equalsIgnoreCase(type.getTitle())) {
                     return type;
                 }
             }
         }
-        Assert.fail(String.format("Unsupported calculator type [%s]. Use one of [%s]", value, Operations.values()[0]));
+        Assert.fail(String.format("Unsupported calculator type [%s]. Use one of [%s]", title, Operations.values()[0]));
         return null;
     }
 }

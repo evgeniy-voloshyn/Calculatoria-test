@@ -26,7 +26,6 @@ public class TestDataPoolReader extends AbstractXmlReader {
             for (Node node : searchParams) {
                 TestDataPoolRecord record = new TestDataPoolRecord();
                 record.setCalculatorType(getText(node, "./calculatorType/text()"));
-//                record.setCalculatorType(CalculatorType.fromString(getText(node, "./calculatorType/text()")));
                 record.setOperation(getText(node, "./operation/text()"));
                 record.setFirstNumber(getText(node, "./numbers/firstNumber/text()"));
                 record.setSecondNumber(getText(node, "./numbers/secondNumber/text()"));
@@ -41,8 +40,4 @@ public class TestDataPoolReader extends AbstractXmlReader {
 
         return results;
     }
-
-   /* public Object[][] getPoolData() {
-
-    }*/
 }

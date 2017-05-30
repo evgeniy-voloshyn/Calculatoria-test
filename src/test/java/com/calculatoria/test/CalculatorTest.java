@@ -47,30 +47,30 @@ public class CalculatorTest extends BaseTest {
         MainPage mainPage = new MainPage();
 
         Calculator calculator = mainPage
-                .selectCalculatorType(CalculatorType.fromString(calculatorType))
+                .selectCalculatorType(CalculatorType.fromTitle(calculatorType))
                 .calculator();
 
-
+        Operations action = Operations.operationFromString(operation);
         String formattedFirst = NumberFormatter.toCalculatorFormat(firstNumber);
-        String formattedSecond = NumberFormatter.toCalculatorFormat(
-                NumberFormatter.formatNegativeNumber(secondNumber)
-        );
-
-        List<String> formattedOperation = formatString(
-                formattedFirst,
-                Operations.operationFromString(operation).getButtonSign(),
-                formattedSecond
-        );
+        String formattedSecond = NumberFormatter.formatNegativeNumber(secondNumber);
+        formattedSecond =  NumberFormatter.toCalculatorFormat(formattedSecond);
 
         calculator
                 .clearDisplay()
-                .type(formattedOperation)
+                .typeNumber(formattedFirst)
+                .typeOperation(action.getButtonSign());
+
+        //skip second number if it is empty, e.g. for sqrt
+        if (!secondNumber.isEmpty()){
+            calculator.typeNumber(formattedSecond);
+        }
+
+        calculator
                 .clickCalculate();
 
 
         int roundingValue = calculator.getRoundingValue();
-        String result = Operations
-                .operationFromString(operation)
+        String result = action
                 .setRoundingValue(roundingValue)
                 .apply(firstNumber, secondNumber)
                 .toString();
@@ -87,14 +87,5 @@ public class CalculatorTest extends BaseTest {
                 .isNotePresent(expectedNote);
 
         Assert.assertTrue(String.format("Note [%s] is not present.", expectedNote), notePresent);
-    }
-
-    private List<String> formatString(String firstNumber, String sing, String secondNumber) {
-        String regex = "(?!^)";
-        List<String> list = new LinkedList<>(Arrays.asList(firstNumber.split(regex)));
-        list.add(sing);
-        list.addAll(Arrays.asList(secondNumber.split(regex)));
-        list.removeIf(""::equals);
-        return list;
     }
 }
