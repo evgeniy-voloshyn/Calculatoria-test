@@ -1,0 +1,70 @@
+group 'SPD-Ukraine-task'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'ru.d10xa.allure'
+defaultTasks 'clean', 'test'
+
+repositories {
+    jcenter()
+    mavenCentral()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+}
+
+configurations {
+    agent
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'com.tngtech.java', name: 'junit-dataprovider', version: '1.10.0'
+    testCompile 'org.hamcrest:hamcrest-core:1.3'
+    testCompile group: 'com.tngtech.java', name: 'junit-dataprovider', version: '1.12.0'
+
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.4.0'
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.4.0'
+    testCompile group: 'ru.stqa.selenium', name: 'webdriver-factory', version: '4.0'
+    testCompile group: 'ru.yandex.qatools.htmlelements', name: 'htmlelements-java', version: '1.17'
+
+    agent "org.aspectj:aspectjweaver:1.8.10"
+    testCompile group: 'ru.yandex.qatools.allure', name: 'allure-junit-adaptor', version: '1.5.3'
+    testCompile group: 'ru.yandex.qatools.allure', name: 'allure-bundle', version: '1.5.3'
+    testCompile group: 'ru.yandex.qatools.allure', name: 'allure-commandline', version: '1.5.3'
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "ru.d10xa:gradle-allure-plugin:0.5.2"
+    }
+}
+
+allure {
+    aspectjweaver = true
+    junit = true
+}
+
+test {
+    useJUnit()
+
+    systemProperty "browser", project.getProperty("browser")
+    systemProperty "base.url", project.getProperty("base.url")
+
+    systemProperty "testdata.dir", project.getProperty("testdata.dir")
+}
+
+test.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+tasks.withType(Test)*.finalizedBy allureReport

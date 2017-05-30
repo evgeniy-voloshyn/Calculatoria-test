@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<data>
+
+    <testdata>
+        <calculatorType>basic</calculatorType>
+        <operation>+</operation>
+        <numbers>
+            <firstNumber>1231241.2</firstNumber>
+            <secondNumber>-234234.2</secondNumber>
+        </numbers>
+    </testdata>
+    <testdata>
+        <calculatorType>basic</calculatorType>
+        <operation>+</operation>
+        <numbers>
+            <firstNumber>15</firstNumber>
+            <secondNumber>22</secondNumber>
+        </numbers>
+    </testdata>
+
+    <testdata>
+        <calculatorType>basic</calculatorType>
+        <operation>-</operation>
+        <numbers>
+            <firstNumber>213123</firstNumber>
+            <secondNumber>2.2</secondNumber>
+        </numbers>
+    </testdata>
+    <testdata>
+        <calculatorType>basic</calculatorType>
+        <operation>-</operation>
+        <numbers>
+            <firstNumber>213123</firstNumber>
+            <secondNumber>2.2</secondNumber>
+        </numbers>
+    </testdata>
+
+    <testdata>
+        <calculatorType>basic</calculatorType>
+        <operation>/</operation>
+        <numbers>
+            <firstNumber>-14</firstNumber>
+            <secondNumber>-2</secondNumber>
+        </numbers>
+    </testdata>
+    <testdata>
+        <calculatorType>basic</calculatorType>
+        <operation>/</operation>
+        <numbers>
+            <firstNumber>56565</firstNumber>
+            <secondNumber>-123.5</secondNumber>
+        </numbers>
+    </testdata>
+
+    <testdata>
+        <calculatorType>basic</calculatorType>
+        <operation>*</operation>
+        <numbers>
+            <firstNumber>123</firstNumber>
+            <secondNumber>-2.2</secondNumber>
+        </numbers>
+    </testdata>
+    <testdata>
+        <calculatorType>basic</calculatorType>
+        <operation>*</operation>
+        <numbers>
+            <firstNumber>55.3</firstNumber>
+            <secondNumber>22323</secondNumber>
+        </numbers>
+    </testdata>
+
+    <testdata>
+        <calculatorType>advanced</calculatorType>
+        <operation>+</operation>
+        <numbers>
+            <firstNumber>9129312931923</firstNumber>
+            <secondNumber>9129312931923</secondNumber>
+        </numbers>
+    </testdata>
+    <testdata>
+        <calculatorType>advanced</calculatorType>
+        <operation>+</operation>
+        <numbers>
+            <firstNumber>55</firstNumber>
+            <secondNumber>45</secondNumber>
+        </numbers>
+    </testdata>
+
+    <testdata>
+        <calculatorType>advanced</calculatorType>
+        <operation>-</operation>
+        <numbers>
+            <firstNumber>546542133</firstNumber>
+            <secondNumber>321454.2</secondNumber>
+        </numbers>
+    </testdata>
+    <testdata>
+        <calculatorType>advanced</calculatorType>
+        <operation>-</operation>
+        <numbers>
+            <firstNumber>333</firstNumber>
+            <secondNumber>-855.2</secondNumber>
+        </numbers>
+    </testdata>
+
+    <testdata>
+        <calculatorType>advanced</calculatorType>
+        <operation>/</operation>
+        <numbers>
+            <firstNumber>95.6</firstNumber>
+            <secondNumber>25.8</secondNumber>
+        </numbers>
+    </testdata>
+    <testdata>
+        <calculatorType>advanced</calculatorType>
+        <operation>/</operation>
+        <numbers>
+            <firstNumber>27</firstNumber>
+            <secondNumber>3</secondNumber>
+        </numbers>
+    </testdata>
+
+    <testdata>
+        <calculatorType>advanced</calculatorType>
+        <operation>*</operation>
+        <numbers>
+            <firstNumber>5999999934</firstNumber>
+            <secondNumber>3</secondNumber>
+        </numbers>
+    </testdata>
+    <testdata>
+        <calculatorType>advanced</calculatorType>
+        <operation>*</operation>
+        <numbers>
+            <firstNumber>6</firstNumber>
+            <secondNumber>6</secondNumber>
+        </numbers>
+    </testdata>
+
+    <testdata>
+        <calculatorType>advanced</calculatorType>
+        <operation>sqrt</operation>
+        <numbers>
+            <firstNumber>9129312931.923</firstNumber>
+            <!--leave second number empty for sqrt-->
+            <secondNumber/>
+        </numbers>
+    </testdata>
+    <testdata>
+        <calculatorType>advanced</calculatorType>
+        <operation>sqrt</operation>
+        <numbers>
+            <firstNumber>900</firstNumber>
+            <!--leave second number empty for sqrt-->
+            <secondNumber/>
+        </numbers>
+    </testdata>
+
+    <testdata>
+        <calculatorType>advanced</calculatorType>
+        <operation>^</operation>
+        <!--//only integer values-->
+        <numbers>
+            <firstNumber>912</firstNumber>
+            <secondNumber>23</secondNumber>
+        </numbers>
+    </testdata>
+    <testdata>
+        <calculatorType>advanced</calculatorType>
+        <operation>^</operation>
+        <!--//only integer values-->
+        <numbers>
+            <firstNumber>-2</firstNumber>
+            <secondNumber>10</secondNumber>
+        </numbers>
+    </testdata>
+
+</data>
